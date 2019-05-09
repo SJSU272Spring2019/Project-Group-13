@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>GoogleAuthentication</title>
+		<meta charset="utf-8">
+		<meta name="google-signin-client_id" content="515619392132-eik3ukaie7ok9ohh44s2bfb4439u2phm.apps.googleusercontent.com">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script type="text/javascript" src="jquery.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  		<link rel="stylesheet" href="main.css">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="index.js"></script>
+		<script src="jquery.js"></script>
+		<script type="text/javascript" src="Sample.json"></script>
+		<script>
+		$(document).ready(function()
+  		{
+  			$('#loadEvent').click(function()
+  			{	
+  				var newData = JSON.stringify(data)
+  				var mydata = JSON.parse(newData);
+  				row = data.length;
+  				column = Object.keys(mydata[0]).length;
+  				//alert(column);
+  				
+				//alert(mydata[0].sender);
+				
+				var rowData = '<table class="eventTable" style="width:250%">';
+					rowData = "<tr><th><input type=\'checkbox\'></th><th>Sender</th><th>Subject</th><th>Event_Type</th><th>Event_Date</th><th>Event_StartTime</th><th>Event_EndTime</th></tr>";
+  	
+  					
+  					for (var i=0; i<row; i++)
+  					{		
+  						rowData += 
+  						'<tr><td><input type=\'checkbox\' name="checkBox[]" value=' + i +'></td><td>' + mydata[i].sender + '</td>' + '<td>' + mydata[i].subject + '</td>' + '<td>' + mydata[i].event_type + 
+  						'</td>' + '<td>' + mydata[i].event_date + '</td>' + '<td>' + mydata[i].event_startTime + '</td>' 
+  						+ '<td>' + mydata[i].event_endTime + '</td></tr>';
+  						$('#EventTable').html(rowData);	
+  					}
+  					rowData += '</table>';
+  				$('#EventTable').html(rowData);
+  						
+  			}); 												// 	---- 	#loadEvent
+  		}); 													// 	---- 	$(document).ready(function()
+  				
+  				
+  				/*$('#updateEvents').click(function() {
+  				
+  					var newData = JSON.stringify(data)
+  					var mydata = JSON.parse(arr);
+  					row = data.length;
+  					//row = arr.length;
+  					column = Object.keys(mydata[0]).length;
+  					
+					testFunction(mydata);
+						
+					
+					function testFunction(mydata){
+	    				var check_box_values = $('#eventForm [type="checkbox"]:checked').map(function () {
+		    	    		return this.value;
+			    		}).get();
+			    
+				    	var newData = JSON.stringify(data)
+  						var mydata = JSON.parse(newData);
+
+  						let dataArray = [
+  								{sender: "", subject : "", event_startTime: "", event_date: "", event_endTime: "", event_type:""} ];
+  				
+  						for (var i=0; i<check_box_values.length; i++){
+	  						let j = check_box_values[i];
+  							dataArray[i] = {};
+  							dataArray[i]["sender"] = mydata[j].sender;
+  							dataArray[i]["subject"] = mydata[j].subject;
+  							dataArray[i]["event_startTime"] = mydata[j].event_startTime;
+  							dataArray[i]["event_date"] = mydata[j].event_date;
+  							dataArray[i]["event_endTime"] = mydata[j].event_endTime;
+  							dataArray[i]["event_type"] = mydata[j].event_type;
+  							console.log("dataArray  " +dataArray[i].event_type);		
+  						}
+						console.table(dataArray);
+						alert("Updted the calendar");
+					}
+  				}); */
+										
+		</script>
+		
+		<style>
+			.g-signin2{
+				margin-left:10px;
+				margin-right:10px;
+				color:black;
+			}
+			.data{
+				text-align: left;
+				display:none;
+				border: 1px solid black;
+				color:black;
+			}
+			.bg-1{
+				height: 500px ;
+				width: 100%;
+			}
+			#signOut{
+				color:black;
+				border: 1px solid black;
+			}
+			#loadEvent, #updateEvents{
+				color:black;
+			}
+			.eventTable{
+				font-family: arial;
+				color:black;
+  				border-collapse: collapse;
+			}
+			td, th {
+  				border: 1px solid #dddddd;
+  				color:black;
+  				text-align: left;
+			}
+
+			tr:nth-child(even) {
+  				background-color: #dddddd;
+  				color:black;
+			}
+			
+		</style>
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-default" style="background-color:lightblue">
+  			<div class="container">
+    		<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>                        
+      		</button>
+      	
+    		</div>
+    		<div class="collapse navbar-collapse" id="myNavbar">
+      			<ul class="nav navbar-nav navbar-right">
+      				<li><a href="Calendar.html">Get Calendar</a></li>
+      				<button  id="signOut" type="button"  onclick="signOut()">SignOut</button>
+      			</ul>
+    		</div>
+  			</div>
+		</nav>
+	
+
+	<div class="test" >
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+			<div class="data" width = 50 px>
+				<br>
+				Profile Details <br> <br>
+				<p style="margin:0;display:inline;float:left">Email ID		: </p>
+				<p id="email" style="display:inline;float:left"></p>
+				<br><br>
+				<p style="margin:0;display:inline;float:left">Profile ID	: </p>
+				<p id="profile" style="display:inline;float:left"></p>
+				<br>
+			</div>
+				
+			<div class="data">		
+				<button type="button" name="loadEvent" id ="loadEvent">Load the events</button>
+			</div>
+			
+			<form id="eventForm" name="eventForm">	
+				<div id="EventTable" style="width:150%">
+			
+  				</div>
+  				<br>
+  			</form>
+  			
+  			<div class="data">
+    			<button type="submit" id="updateEvents" name="updateEvents">Update the events</button>
+  			</div>
+  		
+  			<div class="data">		
+				<button type="button" name="authButton" id ="authButton">Authentication</button>
+			</div>			
+		</div>		
+		
+	</div>	
+	</body>
+</html>

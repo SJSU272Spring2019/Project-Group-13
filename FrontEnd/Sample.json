@@ -1,0 +1,34 @@
+data = [
+  {
+    "event_date": "2019-04-17",
+    "event_type": "Birthday",
+    "sender": "wamique Ansari <wamique.ansari@gmail.com>",
+    "subject": "Invitation for birthday party",
+    "event_startTime": "00:00:00",
+    "event_endTime": "00:00:00"
+  },
+  {
+    "event_date": "2019-04-17",
+    "event_startTime": "2019-04-17",
+    "event_endTime": "2019-04-17",
+    "event_type": "Marriage",
+    "sender": "wamique Ansari <wamique.ansari@gmail.com>",
+    "subject": "Test from wamique 1"
+  },
+  {
+    "event_date": "2019-04-17",
+    "event_startTime": "2019-04-17",
+    "event_type": "Marriage",
+    "sender": "Sai Mannvith <saimanvith999@gmail.com>",
+    "subject": "ABC",
+    "event_endTime": "00:00:00"
+  },
+  {
+    "event_date": "2019-04-17",
+    "event_startTime": "2019-04-17",
+    "event_type": "Birthday",
+    "sender": "Sai Mannvith <saimanvith999@gmail.com>",
+    "subject": "Mail 1",
+    "event_endTime": "00:00:00"
+  }
+]
