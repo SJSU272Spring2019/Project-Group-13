@@ -17,9 +17,8 @@ Create an ubuntu instance in EC-2
 Now go to com.calendered>Common utilities and change the parameter to Server_URL_auth to your ec2 instance URl
 
 Go to your EC2 instance and copy gmailec2.py and requirement.txt 
-
+change the permission to admistrator usign sudo su
 now start the server using:
-
 export FLASK_APP=gmailec2.py
 python3 -m flask run --host=0.0.0.0
 
